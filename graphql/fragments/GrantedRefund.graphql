@@ -1,0 +1,14 @@
+fragment GrantedRefund on TransactionRefundRequested {
+  grantedRefund {
+    id
+    reason
+    amount {
+      currency
+      amount
+    }
+    lines {
+      id
+      quantity
+    }
+  }
+}

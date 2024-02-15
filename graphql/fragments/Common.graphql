@@ -1,0 +1,10 @@
+fragment Common on TransactionRefundRequested {
+  action {
+    amount
+    actionType
+  }
+  transaction {
+    id
+    pspReference
+  }
+}
