@@ -1,5 +1,5 @@
 <div align="center">
-<img width="150" alt="saleor-app-template" src="https://user-images.githubusercontent.com/4006792/215185065-4ef2eda4-ca71-48cc-b14b-c776e0b491b6.png">
+<img width="150" alt="saleor-app-template" src="https://github.com/krzysztofzuraw/app-webhook-factory/blob/main/public/logo.png?raw=true">
 </div>
 
 <div align="center">
