@@ -1,0 +1,5 @@
+fragment OrderId on OrderCreated {
+  order {
+    id
+  }
+}

@@ -19,7 +19,7 @@ export default createManifestHandler({
       permissions: ["MANAGE_ORDERS"],
       id: "saleor.app",
       version: packageJson.version,
-      webhooks: [orderCreatedWebhookFactory(saleorVersion).getWebhookManifest(apiBaseURL)],
+      webhooks: [orderCreatedWebhookFactory.getWebhookManifest(apiBaseURL, saleorVersion)],
       extensions: [],
       author: "Saleor Commerce",
       brand: {
