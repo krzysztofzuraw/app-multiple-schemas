@@ -2,6 +2,7 @@ import { createManifestHandler } from "@saleor/app-sdk/handlers/next";
 import { AppManifest } from "@saleor/app-sdk/types";
 
 import packageJson from "../../../package.json";
+import { getSaleorVersion } from "../../lib/get-saleor-version";
 import { orderCreatedWebhookFactory } from "./webhooks/order-created";
 
 export default createManifestHandler({
@@ -9,7 +10,10 @@ export default createManifestHandler({
     const iframeBaseUrl = process.env.APP_IFRAME_BASE_URL ?? appBaseUrl;
     const apiBaseURL = process.env.APP_API_BASE_URL ?? appBaseUrl;
 
-    const saleorVersion = request.headers ? request.headers["saleor-schema-version"] : "";
+    // header is present in Saleor 3.15 and later
+    const saleorVersion = getSaleorVersion(
+      request.headers ? request.headers["saleor-schema-version"] : ""
+    );
     console.log(`saleorVersion: ${saleorVersion}`);
 
     const manifest: AppManifest = {

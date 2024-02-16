@@ -7,32 +7,28 @@ import {
 } from "../../generated/graphql";
 import { saleorApp } from "../saleor-app";
 
+type CombinedFragments = OrderCreatedFullFragment | OrderIdFragment;
+
 export class OrderCreatedWebhookFactory {
-  commonConfig = {
+  private webhook = new SaleorAsyncWebhook<CombinedFragments>({
     name: "Order Created in Saleor",
     webhookPath: "api/webhooks/order-created",
     event: "ORDER_CREATED",
     apl: saleorApp.apl,
-  } as const;
+    query: OrderCreatedDocument,
+  });
 
-  getWebhookManifest(apiBaseURL: string, saleorVersion: string | undefined | string[]) {
-    if (saleorVersion && !Array.isArray(saleorVersion) && parseFloat(saleorVersion) >= 3.15) {
-      return new SaleorAsyncWebhook<OrderCreatedFullFragment>({
-        ...this.commonConfig,
-        query: OrderCreatedDocument,
-      }).getWebhookManifest(apiBaseURL);
-    } else {
-      return new SaleorAsyncWebhook<OrderIdFragment>({
-        ...this.commonConfig,
-        query: OrderCreated314Document,
-      }).getWebhookManifest(apiBaseURL);
+  getWebhookManifest(apiBaseURL: string, saleorVersion: number) {
+    if (saleorVersion >= 3.15) {
+      this.webhook.query = OrderCreatedDocument;
+      return this.webhook.getWebhookManifest(apiBaseURL);
     }
+
+    this.webhook.query = OrderCreated314Document;
+    return this.webhook.getWebhookManifest(apiBaseURL);
   }
 
-  createHandler(handlerFn: NextWebhookApiHandler<OrderCreatedFullFragment | OrderIdFragment, {}>) {
-    return new SaleorAsyncWebhook<OrderCreatedFullFragment | OrderIdFragment>({
-      ...this.commonConfig,
-      query: OrderCreatedDocument,
-    }).createHandler(handlerFn);
+  createHandler(handlerFn: NextWebhookApiHandler<CombinedFragments, {}>) {
+    return this.webhook.createHandler(handlerFn);
   }
 }
