@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <h1>Saleor App Template</h1>
+  <h1>App Webhook Factory/h1>
 </div>
 
 <div align="center">
@@ -111,7 +111,7 @@ pnpm dev
 ```
 
 3. Expose local environment using tunnel:
-Use tunneling tools like [localtunnel](https://github.com/localtunnel/localtunnel) or [ngrok](https://ngrok.com/).
+   Use tunneling tools like [localtunnel](https://github.com/localtunnel/localtunnel) or [ngrok](https://ngrok.com/).
 
 4. Install the application in your dashboard:
 

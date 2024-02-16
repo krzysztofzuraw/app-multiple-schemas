@@ -1,5 +1,5 @@
 {
-  "name": "saleor-app-template",
+  "name": "app-webhook-factory",
   "version": "1.0.0",
   "private": true,
   "scripts": {
