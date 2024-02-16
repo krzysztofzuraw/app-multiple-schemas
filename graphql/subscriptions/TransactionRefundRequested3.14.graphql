@@ -1,5 +1,0 @@
-subscription TransactionRefundRequested314 {
-  event {
-    ...Common
-  }
-}

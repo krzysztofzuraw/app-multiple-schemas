@@ -1,0 +1,9 @@
+subscription OrderCreated314 {
+  event {
+    ... on OrderCreated {
+      order {
+        id
+      }
+    }
+  }
+}

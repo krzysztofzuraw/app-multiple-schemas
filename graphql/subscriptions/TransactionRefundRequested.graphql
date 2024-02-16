@@ -1,6 +1,0 @@
-subscription TransactionRefundRequested {
-  event {
-    ...Common
-    ...GrantedRefund
-  }
-}

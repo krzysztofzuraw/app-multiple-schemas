@@ -2,7 +2,7 @@ import { createManifestHandler } from "@saleor/app-sdk/handlers/next";
 import { AppManifest } from "@saleor/app-sdk/types";
 
 import packageJson from "../../../package.json";
-import { transactionRefundRequestedWebhookFactory } from "./webhooks/transaction-refund-requested";
+import { orderCreatedWebhookFactory } from "./webhooks/order-created";
 
 export default createManifestHandler({
   async manifestFactory({ appBaseUrl, request }) {
@@ -16,12 +16,10 @@ export default createManifestHandler({
       name: "Saleor App Template",
       tokenTargetUrl: `${apiBaseURL}/api/register`,
       appUrl: iframeBaseUrl,
-      permissions: ["HANDLE_PAYMENTS"],
+      permissions: ["MANAGE_ORDERS"],
       id: "saleor.app",
       version: packageJson.version,
-      webhooks: [
-        transactionRefundRequestedWebhookFactory(saleorVersion).getWebhookManifest(apiBaseURL),
-      ],
+      webhooks: [orderCreatedWebhookFactory(saleorVersion).getWebhookManifest(apiBaseURL)],
       extensions: [],
       author: "Saleor Commerce",
       brand: {
