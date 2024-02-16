@@ -3,7 +3,7 @@ import { AppManifest } from "@saleor/app-sdk/types";
 
 import packageJson from "../../../package.json";
 import { getSaleorVersion } from "../../lib/get-saleor-version";
-import { orderCreatedWebhookFactory } from "./webhooks/order-created";
+import { orderCreatedWebhook } from "./webhooks/order-created";
 
 export default createManifestHandler({
   async manifestFactory({ appBaseUrl, request }) {
@@ -23,7 +23,7 @@ export default createManifestHandler({
       permissions: ["MANAGE_ORDERS"],
       id: "saleor.app",
       version: packageJson.version,
-      webhooks: [orderCreatedWebhookFactory.getWebhookManifest(apiBaseURL, saleorVersion)],
+      webhooks: [orderCreatedWebhook.getWebhookManifest(apiBaseURL, saleorVersion)],
       extensions: [],
       author: "Saleor Commerce",
       brand: {

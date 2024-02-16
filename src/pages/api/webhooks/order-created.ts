@@ -1,8 +1,8 @@
 import { OrderCreatedWebhookFactory } from "../../../lib/order-created-webhook-factory";
 
-export const orderCreatedWebhookFactory = new OrderCreatedWebhookFactory();
+export const orderCreatedWebhook = new OrderCreatedWebhookFactory();
 
-export default orderCreatedWebhookFactory.createHandler((req, res, ctx) => {
+export default orderCreatedWebhook.createHandler((req, res, ctx) => {
   const { payload } = ctx;
 
   console.log(`Order created: ${JSON.stringify(payload)}`);
