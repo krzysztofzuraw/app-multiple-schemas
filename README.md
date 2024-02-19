@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <h1>App Webhook Factory</h1>
+  <h1>Webhook Factory App</h1>
 </div>
 
 ### Important places to look:
