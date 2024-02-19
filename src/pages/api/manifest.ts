@@ -17,7 +17,7 @@ export default createManifestHandler({
     console.log(`saleorVersion: ${saleorVersion}`);
 
     const manifest: AppManifest = {
-      name: "App webhook factory",
+      name: "Webhook factory app",
       tokenTargetUrl: `${apiBaseURL}/api/register`,
       appUrl: iframeBaseUrl,
       permissions: ["MANAGE_ORDERS"],
