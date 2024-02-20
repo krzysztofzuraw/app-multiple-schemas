@@ -8,5 +8,6 @@ fragment OrderCreatedFull on OrderCreated {
       firstName
       lastName
     }
+    externalReference
   }
 }

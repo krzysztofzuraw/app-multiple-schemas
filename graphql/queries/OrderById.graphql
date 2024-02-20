@@ -1,0 +1,20 @@
+query OrderById($id: ID!) {
+  order(id: $id) {
+    number
+    user {
+      firstName
+      lastName
+    }
+    shippingAddress {
+      country {
+        country
+      }
+    }
+    total {
+      gross {
+        amount
+        currency
+      }
+    }
+  }
+}

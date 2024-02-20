@@ -1,0 +1,14 @@
+query OrderByExternalRef($externalReference: String!) {
+  order(externalReference: $externalReference) {
+    number
+    user {
+      firstName
+      lastName
+    }
+    billingAddress {
+      country {
+        country
+      }
+    }
+  }
+}
