@@ -9,6 +9,16 @@ import { saleorApp } from "../saleor-app";
 
 type CombinedFragments = OrderCreatedFullFragment | OrderIdFragment;
 
+export const isFullOrder = (data: any): data is OrderCreatedFullFragment => {
+  return data.order?.userEmail !== undefined;
+};
+
+// wait for new version of app-sdk to be released
+export const isFullOrderWithVersion = (
+  version: number,
+  data: CombinedFragments
+): data is OrderCreatedFullFragment => version >= 3.15;
+
 export class OrderCreatedWebhookFactory {
   private webhook = new SaleorAsyncWebhook<CombinedFragments>({
     name: "Order Created in Saleor",
