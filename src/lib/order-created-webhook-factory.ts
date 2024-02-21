@@ -9,15 +9,10 @@ import { saleorApp } from "../saleor-app";
 
 type CombinedFragments = OrderCreatedFullFragment | OrderIdFragment;
 
-export const isFullOrder = (data: any): data is OrderCreatedFullFragment => {
-  return data.order?.userEmail !== undefined;
-};
-
-// wait for new version of app-sdk to be released
-export const isFullOrderWithVersion = (
-  version: number,
+export const isFullOrder = (
+  version: number | null,
   data: CombinedFragments
-): data is OrderCreatedFullFragment => version >= 3.15;
+): data is OrderCreatedFullFragment => (version ? version >= 3.15 : false);
 
 export class OrderCreatedWebhookFactory {
   private webhook = new SaleorAsyncWebhook<CombinedFragments>({
@@ -28,8 +23,8 @@ export class OrderCreatedWebhookFactory {
     query: OrderCreatedDocument,
   });
 
-  getWebhookManifest(apiBaseURL: string, saleorVersion: number) {
-    if (saleorVersion >= 3.15) {
+  getWebhookManifest(apiBaseURL: string, saleorVersion: number | null) {
+    if (saleorVersion && saleorVersion >= 3.15) {
       this.webhook.query = OrderCreatedDocument;
       return this.webhook.getWebhookManifest(apiBaseURL);
     }
