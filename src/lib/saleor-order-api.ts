@@ -6,7 +6,7 @@ import {
 } from "../../generated/graphql";
 import { createClient } from "./create-graphq-client";
 
-export class SaleorOrderAPIFactory {
+export class SaleorOrderAPI {
   private client: Client;
 
   constructor(public apiUrl: string, public token: string) {
