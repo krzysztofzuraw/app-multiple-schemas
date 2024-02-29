@@ -12,6 +12,8 @@ export default orderCreatedWebhook.createHandler(async (req, res, ctx) => {
   const saleorAPI = new SaleorOrderAPI(authData.saleorApiUrl, authData.token);
   const client = createClient(authData.saleorApiUrl, async () => ({ token: authData.token }));
 
+  console.log(`Schema version: ${schemaVersion}`);
+
   if (OrderCreatedWebhookFactory.isFullDataOrderCreated(schemaVersion, payload)) {
     console.log(`Full order: ${payload.order?.userEmail}`);
     const orderByExternalRef = await saleorAPI.getOrder<OrderByExternalRefQuery>({

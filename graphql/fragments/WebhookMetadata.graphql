@@ -1,0 +1,3 @@
+fragment BasicWebhookMetadata on Event {
+  version
+}

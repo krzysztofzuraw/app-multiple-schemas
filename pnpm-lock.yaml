@@ -10,7 +10,7 @@ specifiers:
   '@graphql-codegen/typescript-urql': ^3.7.3
   '@graphql-codegen/urql-introspection': 2.2.1
   '@graphql-typed-document-node/core': ^3.2.0
-  '@saleor/app-sdk': 0.0.0-pr-20240221080742
+  '@saleor/app-sdk': 0.0.0-pr-20240229095552
   '@saleor/macaw-ui': 1.0.0-pre.4
   '@types/node': ^18.11.18
   '@types/react': ^18.2.6
@@ -33,7 +33,7 @@ specifiers:
   vitest: ^0.27.1
 
 dependencies:
-  '@saleor/app-sdk': 0.0.0-pr-20240221080742_67625bd229e5147dffbcb8dd9529bab0
+  '@saleor/app-sdk': 0.0.0-pr-20240229095552_67625bd229e5147dffbcb8dd9529bab0
   '@saleor/macaw-ui': 1.0.0-pre.4_623fc0ba05d54a6db6ab8fe61c0937b6
   '@urql/exchange-auth': 1.0.0_graphql@16.8.1
   '@vitejs/plugin-react': 3.1.0_vite@4.4.11
@@ -2714,8 +2714,8 @@ packages:
     resolution: {integrity: sha512-6i/8UoL0P5y4leBIGzvkZdS85RDMG9y1ihZzmTZQ5LdHUYmZ7pKFoj8X0236s3lusPs1Fa5HTQUpwI+UfTcmeA==}
     dev: true
 
-  /@saleor/app-sdk/0.0.0-pr-20240221080742_67625bd229e5147dffbcb8dd9529bab0:
-    resolution: {integrity: sha512-09YcdEMp0b3QqSy18/RooJMA6RoldfwjWIi0RQyEmcZm1ROWpjyhZmqP9gnoHkhT3F4/LWb/PQ8aCufWhK5eig==}
+  /@saleor/app-sdk/0.0.0-pr-20240229095552_67625bd229e5147dffbcb8dd9529bab0:
+    resolution: {integrity: sha512-fNVf2I7WMKhiJggRAyas8yG4zhfilgSQ5Cewi8rNWL4efSECQAudRQitVsF+FRfBcP8xpyQ1WAUc9GPhITwxtQ==}
     peerDependencies:
       '@vercel/kv': ^1.0.0
       graphql: '>=16.6.0'

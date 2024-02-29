@@ -1,5 +1,6 @@
 subscription OrderCreated314 {
   event {
+    ...BasicWebhookMetadata
     ... on OrderCreated {
       ...OrderId
     }
